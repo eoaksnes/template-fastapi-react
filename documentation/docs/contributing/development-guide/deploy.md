@@ -1,9 +1,8 @@
 ---
-title: Deploy
 sidebar_position: 3
 ---
 
-# Deployment
+# Publishing
 
 ## Github actions
 

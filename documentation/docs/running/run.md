@@ -1,9 +1,8 @@
 ---
-title: Run
 sidebar_position: 2
 ---
 
-# Running
+# Starting services
 
 You can start running:
 

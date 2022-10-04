@@ -1,5 +1,6 @@
 ---
-title: Clean architecture
+title: API architecture
+sidebar_position: 4
 ---
 
 # Clean architecture

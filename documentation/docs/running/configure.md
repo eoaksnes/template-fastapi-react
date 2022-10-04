@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Settings
+# Configuration
 
 This document goes through all the different configuration options available.
 
@@ -10,11 +10,14 @@ This document goes through all the different configuration options available.
 
 First, let's look at the options available in the `.env` file.
 
-{% info :warning: Remember to restart %}
+:::info
+
+Remember to restart 
+
 Any changes you make to this file will only come into effect when you restart the
 server.
-{% end %}
 
+:::
 
 #### Web settings
 

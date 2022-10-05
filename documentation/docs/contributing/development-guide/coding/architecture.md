@@ -1,13 +1,26 @@
 ---
-title: Architecture
 sidebar_position: 1
 ---
 
-# Clean architecture
+# Architecture 
 
-We follow the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) style and structure the codebase accordingly for our API's.
+Here’s how the project is organized. 
 
-## What is Clean Architecture?
+```
+├── api/ - backend code
+│── web/ - frontend code
+│── documentation/ - documentation
+├── docker-compose.override.yml - for running in development mode locally
+├── docker-compose.yml - common docker compose settings
+├── .env-template - template for environment variables
+└── ...
+```
+
+## Clean architecture
+
+We follow the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) style and structure the codebase accordingly for our API.
+
+### What is Clean Architecture?
 
 It is a layered approach for a [more civilized age](https://www.youtube.com/watch?v=wtCQalq7L-E).
 
@@ -17,14 +30,14 @@ The most important rule: Source code dependencies can only point inwards. Nothin
 
 The golden rule: Talk inward with simple structures (dictionaries or classes) and talk outwards through interfaces.
 
-## Why Clean Architecture?
+### Why Clean Architecture?
 
 * `Loose coupling between the code` – The code can easily be modified without affecting any or a large part of the app’s codebase thus easier to scale the application later on.
 * Easier to `test` code. It is designed so that every part of the architecture is easy testable. Our tests can be simpler to write, faster and cheaper to maintain.
 * `Separation of Concern` – Different modules have specific responsibilities making it easier for modification and maintenance.
 * `Framework independent` - This architecture is framework independent. This means it doesn’t matter which database, frameworks, UI, external services you are using, the entities and the business logic of the application will always stay the same. When any of the external parts of the system become obsolete, like the database, or the web framework, you can replace those obsolete elements with a minimum of effort.
 
-## S.O.L.I.D Principles
+### S.O.L.I.D Principles
 
 * Single Responsibility: Each software component should have only one reason to change – one responsibility.
 
@@ -36,10 +49,17 @@ The golden rule: Talk inward with simple structures (dictionaries or classes) an
 
 * Dependency Inversion: Components should depend on abstractions rather than concrete implementations. Also higher level modules shouldn’t depend on lower level modules.
 
+### Components
+
+- `Entities`- are the enterprise business objects of our application. These should not be affected by any change external to them, and these should be the most stable code within your application. An entity can be an object with methods, or it can be a set of data structures and functions. Should be a regular class, dataclasses, or value objects (if all the properties are the same, the objects are identical). Entity does not depend on anything except possibly other entities. It holds data (state) and logic reusable for various applications.
+- `Use cases` - implements and encapsulates all the application business rules. Each use case orchestrates all of the logic for a specific application business use case. Logic that defines the actual features of our app. Changes to use cases should not impact the entities. Inside use cases we should have every right to expect that arguments are valid in terms of type. The only thing you can do with a use case is to execute it. Use cases interact with entities (thus depend on them) and hold logic of the specific application (and typically execute that logic via various repositories or data access layer(s) gateway(s).
+- `Controllers` - you can think of them as an entry and exit gates to the use cases. It receives a request and return a response. The controller takes the user input (the request), converts it into the request object defined by the use case and passes the request objects to the use case, and at the end return the response objects.
+- `Repositories` - takes entities and returns entities, hides storage details. Can work against local, remote, data services or third party services.
+
+
 ## Architecture diagrams
 
 We are using [c4model](https://c4model.com) for showing architecture diagrams.
-
 
 ### Level 1 - System Context diagram
 
@@ -61,37 +81,7 @@ The Component diagram shows how a container is made up of a number of components
 
 ![Container diagram](/img/api-level-3.svg)
 
-#### Entities 
+[//]: # (https://docs.astro.build/en/core-concepts/project-structure/)
 
-Are the enterprise business objects of our application. These should not be affected by any change external to them, and these should be the most stable code within your application. An entity can be an object with methods, or it can be a set of data structures and functions. Should be a regular class, dataclasses, or value objects (if all the properties are the same, the objects are identical). Entity does not depend on anything except possibly other entities. It holds data (state) and logic reusable for various applications. 
+[//]: # (https://profy.dev/article/react-folder-structure)
 
-#### Use cases 
-
-Implements and encapsulates all the application business rules. Each use case orchestrates all of the logic for a specific application business use case. Logic that defines the actual features of our app. Changes to use cases should not impact the entities. Inside use cases we should have every right to expect that arguments are valid in terms of type. The only thing you can do with a use case is to execute it. Use cases interact with entities (thus depend on them) and hold logic of the specific application (and typically execute that logic via various repositories or data access layer(s) gateway(s).
-
-#### Controllers 
-
-You can think of them as an entry and exit gates to the use cases. It receives a request and return a response. The controller takes the user input (the request), converts it into the request object defined by the use case and passes the request objects to the use case, and at the end return the response objects.
-
-#### Repositories
-
-Takes entities and returns entities, hides storage details. Can work against local, remote, data services or third party services.
-
-## Different types of logic
-
-Enterprise business logic (entities) vs. application business logic (use-cases): The business logic are divided between two layers: the domain layer (aka entities) and the application layer (aka use cases). The domain layer contains the enterprise business logic, and the application layer contains the application business logic. The difference being that enterprise logic could be shared with other systems whereas application logic would typically be specific to single system.
-
-### Example: Bank application
-
-For example let's say we have a banking app with three functionalities: login, view balance and transfer funds.
-
-So, to be able to transfer funds the user must be logged in and should have sufficient balance.
-
-Entities:
-  * User (holds user name, hashed&salted password; logic like validate user name, hash plain-text password)
-  * Balance (holds user dependency, amount, limits, logic like verify if given transfer amount is OK)
-
-Use cases:
-  * Authenticate (based on user-name/password input, validate it and (using some sort of repository or gateway to data) pull user entity from backend, along with some token likely), likely cache it if success or report errors if any
-  * View Balance (based on user entity input, pull balance entity from backend (same as above...), report errors if any
-  * Transfer Funds (based on user entity and amount input, pull balance entity, verify if transfer permitted, perform if so or report error if not)

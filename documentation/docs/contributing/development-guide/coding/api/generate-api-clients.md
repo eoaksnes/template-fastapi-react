@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Generate API clients
 
 To generate typescript client for API run:

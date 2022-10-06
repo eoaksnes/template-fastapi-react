@@ -29,6 +29,17 @@ async function createConfig() {
       locales: ['en'],
     },
 
+    plugins: [
+        [
+            '@docusaurus/plugin-content-docs',
+            {
+                id: 'changelog',
+                path: 'changelog',
+                routeBasePath: '/',
+            },
+        ],
+    ],
+
     presets: [
       [
         'classic',
@@ -64,7 +75,13 @@ async function createConfig() {
               position: 'left',
               label: 'Docs',
             },
-            {to: '/changelog', label: 'Changelog', position: 'left'},
+            {
+              type: 'doc',
+              docId: 'changelog',
+              docsPluginId: 'changelog',
+              position: 'left',
+              label: 'Changelog',
+            },
             {
               href: 'https://github.com/equinor/template-fastapi-react',
               label: 'GitHub',

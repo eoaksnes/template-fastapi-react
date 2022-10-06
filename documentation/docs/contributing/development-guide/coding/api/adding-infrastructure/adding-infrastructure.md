@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+title: Adding infrastructure
 slug: ./
+sidebar_position: 3
 ---
 
 # Adding infrastructure

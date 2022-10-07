@@ -17,9 +17,17 @@ jobs:
     outputs:
        release_created: ${{ steps.release.outputs.release_created }}
 
-  deploy-prod:
+  docs:
+    # needs: generate-changelog
     needs: release-please
-    uses: ./.github/workflows/release-production.yaml
     if: ${{ needs.release-please.outputs.release_created }}
-    secrets:
-      APP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.APP_SERVICE_ACCOUNT_TOKEN }}
+    uses: ./.github/workflows/publish-docs.yaml
+    with:
+      message: 'Warning: This is the development version.'
+
+  #deploy-prod:
+  #  needs: release-please
+  #  uses: ./.github/workflows/release-production.yaml
+  #  if: ${{ needs.release-please.outputs.release_created }}
+  #  secrets:
+  #    APP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.APP_SERVICE_ACCOUNT_TOKEN }}

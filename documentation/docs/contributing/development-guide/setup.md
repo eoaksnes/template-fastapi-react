@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Prerequisites
 
-To work with the template monorepo you'll need to install [these packages](../how-to/configure/prerequisites).
+To work with the template monorepo you'll need to install [these packages](../../running/prerequisites.md).
 
 ## Pre-commit
 

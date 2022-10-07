@@ -7,7 +7,7 @@ slug: ./
 
 ## Codebase structure
 
-The API has a feature-based folder structure following the principles of [Clean Architecture](./clean-architecture). 
+The API has a feature-based folder structure following the principles of [Clean Architecture](./../architecture.md). 
 
 ```
 ├── api/

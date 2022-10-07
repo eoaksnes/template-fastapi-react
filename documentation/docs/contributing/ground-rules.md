@@ -5,7 +5,7 @@ sidebar_position: 1
 # Ground rules
 
 * For major changes, please open an issue first to discuss what you would like to change. 
-  * Search for existing issues and pull requests on the [project development board]([](https://github.com/equinor/template-fastapi-react/projects/1)) before creating your own.
+  * Search for existing issues and pull requests on the [project development board](https://github.com/equinor/template-fastapi-react/projects/1) before creating your own.
 * Contributors should fork the repository and work on fixes or enhancements on their own fork.
   * Use the [pull request feature](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) to submit your changes to this  repository.
   * All pull requests should be rebased (with main) and commits squashed prior to the final merge process.

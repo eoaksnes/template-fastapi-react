@@ -19,7 +19,7 @@ import Controller from '!!raw-loader!@site/../api/src/features/todo/todo_feature
   * The controller needs to be decorated with the create_response decorator, that handles exception handling and returns unified response type.
   * The controller needs to have set the response_model and request_model, that is used to generate API documentation and used for validation.
 * `Optional` 
-  * Add [repository implementations](./adding-infrastructure/02-repositories.md) to handle communication to external services such as databases and inject the repository implementations to the controller endpoint and pass the injected repository implementations to the use case
+  * Add [repository implementations](./../adding-infrastructure/02-repositories.md) to handle communication to external services such as databases and inject the repository implementations to the controller endpoint and pass the injected repository implementations to the use case
 
 <!--
 :::note

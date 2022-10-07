@@ -13,8 +13,8 @@ import UseCase from '!!raw-loader!@site/../api/src/features/todo/use_cases/add_t
 * `Required`
   * Each use-case needs to have own read- and write- model to handle custom requests inputs and outputs for each use-case.
 * `Optional`
-  * A [repository interfaces](./features/03-repository-interfaces.md) to handle communication to external services such as databases. 
-    * The use case uses [repositories](/docs/contributing/development-guide/api-architecture#repositories) for reading and writing to external systems like databases.
+  * A [repository interfaces](./../features/03-repository-interfaces.md) to handle communication to external services such as databases. 
+    * The use case uses [repositories](./../adding-infrastructure/02-repositories.md) for reading and writing to external systems like databases.
   
 :::info
 Changes to use cases should not impact the entities.

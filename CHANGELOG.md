@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/eoaksnes/template-fastapi-react/compare/v1.1.0...v1.2.0) (2022-11-01)
+
+
+### Features
+
+* testing ([1e5f428](https://github.com/eoaksnes/template-fastapi-react/commit/1e5f4280922935df0c2b2129e38f5a9413749791))
+
 ## [1.1.0](https://github.com/eoaksnes/template-fastapi-react/compare/v1.0.0...v1.1.0) (2022-10-07)
 
 

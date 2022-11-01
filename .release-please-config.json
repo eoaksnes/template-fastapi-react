@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "api": {
+      "release-type": "python"
+    },
+    "web": {
+      "release-type": "node"
+    }
+  }
+}

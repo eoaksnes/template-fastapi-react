@@ -12,7 +12,7 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          release-type: simple
+          release-type: python
           package-name: release-please-action
     outputs:
        release_created: ${{ steps.release.outputs.release_created }}

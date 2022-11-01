@@ -11,7 +11,7 @@
 
 # Template Fastapi React
 
-testing 2
+testing 23
 
 [![License][license-badge]][license]
 [![On push main branch][on-push-main-branch-badge]][on-push-main-branch-action]

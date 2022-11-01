@@ -16,6 +16,7 @@ jobs:
           bump-minor-pre-major: true
           package-name: api
           version-path: api/__init__.py
+          version-file: version.txt
     outputs:
        release_created: ${{ steps.release.outputs.release_created }}
 

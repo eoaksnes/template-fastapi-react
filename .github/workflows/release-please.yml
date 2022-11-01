@@ -12,8 +12,7 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          release-type: simple
-          package-name: release-please-action
+          command: manifest
     outputs:
        release_created: ${{ steps.release.outputs.release_created }}
 

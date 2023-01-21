@@ -13,6 +13,7 @@ jobs:
         id: release
         with:
           release-type: simple
+          prerelease: true
           package-name: release-please-action
           extra-files: |
             api/pyproject.toml
